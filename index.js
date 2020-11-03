@@ -1,5 +1,5 @@
 module.exports = {
-  request(serverUrl, url, method, data, dataType, headers) {
+  async request(requestObject) {
     proxyUrl = "";
     proxyMethod = "";
     proxyHeaders = {
@@ -8,22 +8,22 @@ module.exports = {
     proxyDataType = "json";
     proxyData = {};
 
-    if (headers) {
+    if (requestObject.headers) {
       proxyHeaders = headers;
     }
 
-    if (dataType) {
+    if (requestObject.dataType) {
       proxyDataType = dataType;
     }
 
-    if (data) {
+    if (requestObject.data) {
       proxyData = data;
     }
 
-    if (method === "DELETE") {
+    if (requestObject.method === "DELETE") {
       proxyUrl = serverUrl + "/delete/" + url;
       proxyMethod = "GET";
-    } else if (method === "PUT") {
+    } else if (requestObject.method === "PUT") {
       proxyUrl = serverUrl + "/put/" + url;
       proxyMethod = "POST";
     } else {
