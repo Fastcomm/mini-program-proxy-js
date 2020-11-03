@@ -1,5 +1,5 @@
 class MiniProgramProxy {
-  doSomthing() {
+  doSomething() {
     window.alert("LIB IS WORKING");
   }
 }

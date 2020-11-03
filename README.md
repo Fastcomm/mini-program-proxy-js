@@ -4,14 +4,14 @@ Proxy for mini programs to make PUT and DELETE calls.
 
 # Installation
 
-`npm i miniprogram-proxy-js --save`
+`npm i mini-program-proxy-js --save`
 
 Then...
 
 ```
    import { miniProgramProxy }  from 'miniprogram-proxy-js'
 
-    miniProgramProxy.put()
+    miniProgramProxy.doSomething()
 
 ```
 
