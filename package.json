@@ -1,0 +1,24 @@
+{
+  "name": "mini-program-proxy-js",
+  "version": "1.0.0",
+  "description": "Proxy for mini programs to make PUT and DELETE calls.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fastcomm/mini-program-proxy-js.git"
+  },
+  "keywords": [
+    "mini",
+    "program",
+    "proxy"
+  ],
+  "author": "Stehan Visser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fastcomm/mini-program-proxy-js/issues"
+  },
+  "homepage": "https://github.com/Fastcomm/mini-program-proxy-js#readme"
+}
