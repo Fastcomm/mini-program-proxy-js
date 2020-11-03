@@ -43,4 +43,4 @@ Example of Failed response:
 | method    | string | true     | Only accept value of 'DELETE' or 'PUT'                                                                                    |
 | data      | object | false    | Request parameters                                                                                                        |
 | dataType  | string | false    | Expected format of the returned data. The following formats are supported: json, text, base64. The default format is json |
-| headers   | Object | false    | Request headers The default is {"content-type": "application/json"}                                                       |
+| headers   | object | false    | Request headers The default is {"content-type": "application/json"}                                                       |
