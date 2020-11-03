@@ -19,11 +19,11 @@ PUT example
       data: {
          username: 'Test',
          password: 'Password'
-      }
+      },
       method: 'PUT'
    }
 
-   miniProgramProxy.request({requestObject}).then((res) => {
+   miniProgramProxy.request(requestObject).then((res) => {
       console.log("response", res);
    })
 
@@ -41,7 +41,7 @@ Delete example
       method: 'DELETE'
    }
 
-   miniProgramProxy.request({requestObject}).then((res) => {
+   miniProgramProxy.request(requestObject).then((res) => {
       console.log("response", res);
    })
 
@@ -49,19 +49,9 @@ Delete example
 
 ## Response
 
-Example of Successful response:
+Response will be that of what your host url returns.
 
-```
-   {success: 'API reponse'}
-```
-
-Example of Failed response:
-
-```
-   {failed: 'API response'}
-```
-
-## Options
+## Request Object Options
 
 | Propery   | Type   | Required | Description                                                                                                                           |
 | --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |

@@ -8,40 +8,50 @@ module.exports = {
     proxyDataType = "json";
     proxyData = {};
 
+    if (!requestObject.serverUrl) {
+      return new Promise({ error: "No Host server url provided" });
+    }
+
+    if (!requestObject.url) {
+      return new Promise({ error: "No api url provided" });
+    }
+
     if (requestObject.headers) {
-      proxyHeaders = headers;
+      proxyHeaders = requestObject.headers;
     }
 
     if (requestObject.dataType) {
-      proxyDataType = dataType;
+      proxyDataType = requestObject.dataType;
     }
 
     if (requestObject.data) {
-      proxyData = data;
+      proxyData = requestObject.data;
     }
 
     if (requestObject.method === "DELETE") {
-      proxyUrl = serverUrl + "/delete/" + url;
+      proxyUrl = requestObject.serverUrl + "/delete/" + requestObject.url;
       proxyMethod = "GET";
     } else if (requestObject.method === "PUT") {
-      proxyUrl = serverUrl + "/put/" + url;
+      proxyUrl = requestObject.serverUrl + "/put/" + requestObject.url;
       proxyMethod = "POST";
     } else {
-      return { error: "Invalid method string provided" };
+      return new Promise({ error: "Invalid method string provided" });
     }
 
-    my.request({
-      url: proxyUrl,
-      method: proxyMethod,
-      data: proxyData,
-      headers: proxyHeaders,
-      dataType: proxyDataType,
-      success: function (res) {
-        return { success: res };
-      },
-      fail: function (res) {
-        return { failed: res };
-      },
-    });
+    return new Promise((response) =>
+      my.request({
+        url: proxyUrl,
+        method: proxyMethod,
+        data: proxyData,
+        headers: proxyHeaders,
+        dataType: proxyDataType,
+        success: (res) => {
+          response(res);
+        },
+        fail: (res) => {
+          response(res);
+        },
+      })
+    );
   },
 };
