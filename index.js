@@ -1,5 +1,8 @@
-export default class MiniProgramProxy {
-  doSomething() {
-    window.alert("LIB IS WORKING");
+class MiniProgramProxy {
+  doSomthing() {
+    window.alert("Lib is working");
   }
 }
+
+const miniProgramProxy = new MiniProgramProxy();
+export default miniProgramProxy;

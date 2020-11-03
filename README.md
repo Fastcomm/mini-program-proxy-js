@@ -9,7 +9,7 @@ Proxy for mini programs to make PUT and DELETE calls.
 Then...
 
 ```
-   import { miniProgramProxy }  from 'miniprogram-proxy-js'
+   import miniProgramProxy  from 'miniprogram-proxy-js'
 
     miniProgramProxy.doSomething()
 
