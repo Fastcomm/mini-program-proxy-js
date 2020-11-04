@@ -1,5 +1,5 @@
 module.exports = {
-  async request(requestObject) {
+  async request(requestObject, success, fail) {
     proxyUrl = "";
     proxyMethod = "";
     proxyHeaders = {
@@ -8,12 +8,12 @@ module.exports = {
     proxyDataType = "json";
     proxyData = {};
 
-    if (!requestObject.serverUrl) {
-      return new Promise({ error: "No Host server url provided" });
+    if (!requestObject.serverUrl || requestObject.serverUrl === "") {
+      return fail({ error: "No Host server url provided" });
     }
 
-    if (!requestObject.url) {
-      return new Promise({ error: "No api url provided" });
+    if (!requestObject.url || requestObject.url === "") {
+      return fail({ error: "No api url provided" });
     }
 
     if (requestObject.headers) {
@@ -55,23 +55,18 @@ module.exports = {
         break;
     }
 
-    return new Promise((response) =>
-      my.request({
-        url: proxyUrl,
-        method: proxyMethod,
-        data: proxyData,
-        headers: proxyHeaders,
-        dataType: proxyDataType,
-        success: (res) => {
-          response({ success: res });
-        },
-        fail: (res) => {
-          response({ fail: res });
-        },
-        complete: (res) => {
-          response({ completed: true, data: res });
-        },
-      })
-    );
+    my.request({
+      url: proxyUrl,
+      method: proxyMethod,
+      data: proxyData,
+      headers: proxyHeaders,
+      dataType: proxyDataType,
+      success: (res) => {
+        success(res);
+      },
+      fail: (res) => {
+        fail(res);
+      },
+    });
   },
 };
