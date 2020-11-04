@@ -1,6 +1,6 @@
 {
   "name": "mini-program-proxy-js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Proxy for mini programs to make PUT and DELETE calls.",
   "main": "index.js",
   "scripts": {
