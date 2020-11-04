@@ -28,14 +28,31 @@ module.exports = {
       proxyData = requestObject.data;
     }
 
-    if (requestObject.method === "DELETE") {
-      proxyUrl = requestObject.serverUrl + "/delete/" + requestObject.url;
-      proxyMethod = "GET";
-    } else if (requestObject.method === "PUT") {
-      proxyUrl = requestObject.serverUrl + "/put/" + requestObject.url;
-      proxyMethod = "POST";
-    } else {
-      return new Promise({ error: "Invalid method string provided" });
+    switch (requestObject.method) {
+      case "DELETE":
+        proxyUrl = requestObject.serverUrl + "/delete/" + requestObject.url;
+        proxyMethod = "GET";
+        break;
+
+      case "PUT":
+        proxyUrl = requestObject.serverUrl + "/put/" + requestObject.url;
+        proxyMethod = "POST";
+        break;
+
+      case "POST":
+        proxyUrl = requestObject.serverUrl + requestObject.url;
+        proxyMethod = "POST";
+        break;
+
+      case "GET":
+        proxyUrl = requestObject.serverUrl + requestObject.url;
+        proxyMethod = "GET";
+        break;
+
+      default:
+        proxyUrl = requestObject.serverUrl + requestObject.url;
+        proxyMethod = "GET";
+        break;
     }
 
     return new Promise((response) =>
@@ -46,10 +63,13 @@ module.exports = {
         headers: proxyHeaders,
         dataType: proxyDataType,
         success: (res) => {
-          response(res);
+          response({ success: res });
         },
         fail: (res) => {
-          response(res);
+          response({ fail: res });
+        },
+        completed: (res) => {
+          response({ completed: res });
         },
       })
     );
