@@ -1,6 +1,6 @@
 # What is this?
 
-Proxy for mini programs to make PUT and DELETE calls with docker proxy that can be found at https://github.com/Fastcomm/mini-program-proxy-elixir
+Proxy for mini programs to make PUT and DELETE calls with docker proxy that can be found at https://github.com/Fastcomm/mini-program-proxy-elixir or https://github.com/Fastcomm/mini-program-proxy-ruby
 
 # Installation
 
