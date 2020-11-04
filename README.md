@@ -68,7 +68,7 @@ Failure:
 Compelted:
 
 ```
-{completed: true}
+{completed: true, data: 'API RESPONSE'}
 ```
 
 ## Request Object Options

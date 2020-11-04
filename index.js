@@ -68,8 +68,8 @@ module.exports = {
         fail: (res) => {
           response({ fail: res });
         },
-        completed: (res) => {
-          response({ completed: true });
+        complete: (res) => {
+          response({ completed: true, data: res });
         },
       })
     );
