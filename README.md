@@ -71,3 +71,14 @@ Delete example
 ## Response CallbackFn
 
 Ensure you add success and fail callbacks functions to your parameters when calling the request function to handle the response.
+
+## Error codes
+
+| Error | Description                                |
+| ----- | ------------------------------------------ |
+| 11    | No right to call the interface.            |
+| 12    | Network error.                             |
+| 13    | Timeout.                                   |
+| 14    | Decoding failure.                          |
+| 19    | Http error.                                |
+| 20    | Request stopped/service end traffic limit. |

@@ -1,5 +1,5 @@
 module.exports = {
-  async request(requestObject, success, fail) {
+  request({ requestObject, success, fail }) {
     proxyUrl = "";
     proxyMethod = "";
     proxyHeaders = {
@@ -7,14 +7,6 @@ module.exports = {
     };
     proxyDataType = "json";
     proxyData = {};
-
-    if (!requestObject.serverUrl || requestObject.serverUrl === "") {
-      return fail({ error: "No Host server url provided" });
-    }
-
-    if (!requestObject.url || requestObject.url === "") {
-      return fail({ error: "No api url provided" });
-    }
 
     if (requestObject.headers) {
       proxyHeaders = requestObject.headers;
