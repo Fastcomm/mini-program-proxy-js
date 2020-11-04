@@ -69,7 +69,7 @@ module.exports = {
           response({ fail: res });
         },
         completed: (res) => {
-          response({ completed: res });
+          response({ completed: true });
         },
       })
     );

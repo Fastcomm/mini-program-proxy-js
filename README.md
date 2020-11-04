@@ -49,7 +49,27 @@ Delete example
 
 ## Response
 
-Response will be that of what your host url returns.
+Response will be that of what your host url returns with status of the api call.
+
+Examples for different states:
+
+Success:
+
+```
+{success: 'API RESPONSE'}
+```
+
+Failure:
+
+```
+{fail: 'API RESPONSE ERROR'}
+```
+
+Compelted:
+
+```
+{completed: true}
+```
 
 ## Request Object Options
 
