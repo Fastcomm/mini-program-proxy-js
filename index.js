@@ -62,10 +62,10 @@ module.exports = {
       headers: proxyHeaders,
       dataType: proxyDataType,
       success: (res) => {
-        success({ success: res });
+        success(res);
       },
       fail: (res) => {
-        fail({ fail: res });
+        fail(res);
       },
     });
   },
